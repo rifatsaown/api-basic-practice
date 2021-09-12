@@ -8,7 +8,13 @@ function userData() {
     .then(response => response.json())
     .then(data => showData(data))
 }
-function showData(user) {
+function showData(users) {
     const ul = document.getElementById("users");
-    
+    for (const user of users){
+        const li = document.createElement("li");
+        li.innerText = `Name: ${user.name}
+                        Email: ${user.email}
+                        Address: ${user.address.street} , ${user.address.suite}, ${user.address.city}`;
+        ul.appendChild(li);
+    }
 }
